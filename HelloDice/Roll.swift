@@ -13,7 +13,7 @@ class Roll {
     var sides :Int = 0
     
     
-    func makeRoll(inValue: Int, inSides: Int) -> Roll! {
+    class func makeRoll(value inValue: Int, sides inSides: Int) -> Roll! {
         let roll = Roll()
         roll.value = inValue;
         roll.sides = inSides;

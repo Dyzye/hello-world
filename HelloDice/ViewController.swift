@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
 
    
+
+    @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var rollButton: UIButton!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var sidesPicker: UIPickerView!
@@ -18,7 +20,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     var sides:Int = 6
     var result:Int=0
-    var previousrolls: Array <Int> = Array()
+    var previousrolls: Array <Roll> = Array()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
+    @IBAction func clearTable(_ sender: Any) {
+        clearRolls()
+        clearResult()
+    }
+    
     func refreshResult() {
         if result  == 0 {
             clearResult()
@@ -56,14 +63,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func clearRolls()
     {
         previousrolls = Array()
+        refreshRollsTable()
     }
     func addRoll(value: Int)
     {
-        previousrolls.append(value)
-        refreshRolls();
+        previousrolls.append(Roll.makeRoll(value: value, sides: sides))
+        refreshRollsTable();
     }
     
-    func refreshRolls()
+    func refreshRollsTable()
     {
         rollsTable.reloadData()
     }
@@ -117,7 +125,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let label = cell.textLabel {
-            label.text = String(previousrolls[indexPath.row]) + "     \(sides) sides"
+            let roll = previousrolls[indexPath.row]
+            label.text = String(roll.value) + "     \(roll.sides) sides" // add date
         }
     }
     
