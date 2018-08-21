@@ -53,14 +53,26 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="6wr-c7-NHU"/>
                                 </connections>
                             </pickerView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="15" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dwx-Aa-Sz9">
+                                <rect key="frame" x="67" y="447" width="240" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="0fd-JD-o84"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Kyj-Lc-wiN"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dwx-Aa-Sz9" secondAttribute="trailing" constant="68" id="Fc9-cy-xrh"/>
                             <constraint firstItem="GDp-cR-DEQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="252" id="GA0-yO-u2S"/>
+                            <constraint firstItem="dwx-Aa-Sz9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="MxW-GR-E3i"/>
+                            <constraint firstItem="dwx-Aa-Sz9" firstAttribute="top" secondItem="VzT-yz-cp0" secondAttribute="bottom" constant="39" id="Q9X-e1-qzj"/>
                             <constraint firstItem="enp-PL-ic9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="e3j-8R-vUW"/>
                             <constraint firstItem="GDp-cR-DEQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pyw-zT-ysH"/>
                             <constraint firstItem="VzT-yz-cp0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qQX-9n-bIh"/>
                             <constraint firstItem="VzT-yz-cp0" firstAttribute="top" secondItem="GDp-cR-DEQ" secondAttribute="bottom" constant="50" id="wIJ-Du-XtN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dwx-Aa-Sz9" secondAttribute="bottom" constant="20" id="yb3-3s-p4q"/>
                             <constraint firstItem="GDp-cR-DEQ" firstAttribute="top" secondItem="enp-PL-ic9" secondAttribute="bottom" constant="33" id="zhg-WO-Wo9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -68,6 +80,7 @@
                     <connections>
                         <outlet property="resultLabel" destination="GDp-cR-DEQ" id="Om1-aj-PW2"/>
                         <outlet property="rollButton" destination="VzT-yz-cp0" id="0Bv-9w-lLv"/>
+                        <outlet property="rollsTable" destination="dwx-Aa-Sz9" id="cpn-Sw-ZSR"/>
                         <outlet property="sidesPicker" destination="gEV-KK-gUL" id="XVN-7e-h5n"/>
                     </connections>
                 </viewController>
